@@ -9,8 +9,8 @@ class UsersController < ApplicationController
       ),
       User.new(
         id: 2,
-        name: 'Neitiri',
-        username: 'neitiri'
+        name: 'Neytiri',
+        username: 'neytiri'
       )
     ]
   end
