@@ -39,7 +39,7 @@
   <div class="user-questions buffer-both">
     <div class="questions-list">
       <div class="question-content">
-        <%= questions_count(@questions) %>
+        <%= @questions.count %> <%= sklonenie(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
       </div>
       <% @questions.each do |question| %>
           <%= render partial: 'questions/question', object: question %>

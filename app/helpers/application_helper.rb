@@ -7,30 +7,29 @@ module ApplicationHelper
     end
   end
 
-  def questions_count(questions)
-    number = questions.count
+  def sklonenie(number, krokodil, krokodila, krokodilov)
+    if number == nil || !number.is_a?(Numeric)
+      number = 0
+    end
 
     ostatok = number % 100
 
     if ostatok >= 11 && ostatok <= 14
-      str = 'вопросов'
-      return "#{number} #{str}"
+      return krokodilov
     end
 
     ostatok = number % 10
 
     if ostatok == 1
-      str = 'вопрос'
+      return krokodil
     end
 
     if ostatok >= 2 && ostatok <= 4
-      str = 'вопроса'
+      return krokodila
     end
 
     if ostatok > 4 || ostatok == 0
-      str = 'вопросов'
+      return krokodilov
     end
-
-    "#{number} #{str}"
   end
 end
