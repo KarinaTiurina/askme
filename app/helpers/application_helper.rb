@@ -36,4 +36,8 @@ module ApplicationHelper
       return krokodilov
     end
   end
+
+  def find_author(question)
+    User.find(question.author_id) if question.author_id.present?
+  end
 end
