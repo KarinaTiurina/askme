@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to user_path(@question.user), notice: 'Вопрос задан'
     else
-      render :new
+      render :edit
     end
   end
 
@@ -38,6 +38,7 @@ class QuestionsController < ApplicationController
   end
 
   private
+
     def load_question
       @question = Question.find(params[:id])
     end
