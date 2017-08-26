@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates :email, email: true
   validates :username, format: { with: /\A\w+\z/,
                                  message: 'Only allows letters, numbers and character "_"' }
+  validates :color, format: { with: /\A#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})\z/i,
+                              message: 'Must be a valid CSS hex color code' }
 
   attr_accessor :password
 
