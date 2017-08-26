@@ -2,7 +2,9 @@
   <div class="question-content">
     <div class="question-text text-lead">
       <%= question.text %> <br />
-      <%= link_to "@#{find_author(question).username}", user_path(find_author(question)) if find_author(question).present? %>
+      <div class="author">
+        <%= link_to "@#{find_author(question).username}", user_path(find_author(question)) if find_author(question).present? %>
+      </div>
     </div>
 
     <% if question.answer.present? %>
