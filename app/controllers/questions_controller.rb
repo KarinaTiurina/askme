@@ -6,6 +6,9 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def show
+  end
+
   # GET /questions/1/edit
   def edit
   end
