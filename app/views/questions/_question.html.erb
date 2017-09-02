@@ -4,6 +4,9 @@
       <%= question.text %> <br />
       <div class="author">
         <%= link_to "@#{find_author(question).username}", user_path(find_author(question)) if find_author(question).present? %>
+        <% unless question.author %>
+            <%= question.ip %>
+        <% end %>
       </div>
     </div>
 
@@ -15,8 +18,9 @@
 
     <div class="question-date">
       <%= l(question.created_at, format: :short) %>
-      <% unless question.author %>
-        <%= question.ip %>
+      <% tags = load_tags(question) %>
+      <% tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag) %>
       <% end %>
     </div>
   </div>

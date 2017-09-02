@@ -40,4 +40,8 @@ module ApplicationHelper
   def find_author(question)
     User.find(question.author_id) if question.author_id.present?
   end
+
+  def load_tags(question)
+    Tag.joins(:questions).where("question_tags.question_id = ?", question)
+  end
 end
