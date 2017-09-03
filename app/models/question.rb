@@ -11,24 +11,8 @@ class Question < ApplicationRecord
 
 
   def find_tags
-    tags = []
-
-    full_text = answer.present? ? (text + answer) : text
-    tags_str = full_text.scan(/#[[:word:]-]+/i).uniq
-
-    tags_str.each do |tag_str|
-      tag = Tag.find_by(name: tag_str)
-
-      unless tag
-        tag = Tag.create(name: tag_str)
-      end
-      tags << tag
-    end
-
-    QuestionTag.where(question: id).destroy_all
-
-    tags.each do |tag|
-      QuestionTag.create(question: self, tag: tag)
+    (text + answer.to_s).scan(/#[[:word:]-]+/i).uniq.each do |tag_name|
+      tags << Tag.where(name: tag_name).first_or_create!
     end
   end
 end
