@@ -11,6 +11,8 @@ class Question < ApplicationRecord
 
 
   def find_tags
+    QuestionTag.where(question: id).destroy_all
+    
     (text + "!" + answer.to_s).scan(/#[[:word:]-]+/i).uniq.each do |tag_name|
       tags << Tag.where(name: tag_name).first_or_create!
     end
