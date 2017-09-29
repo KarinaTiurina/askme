@@ -1,24 +1,14 @@
-# README
+# Приложение Askme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Учебное приложение аналог сайта https://ask.fm/.
 
-Things you may want to cover:
+Приложение написано с помощью rails 5.1.2.
 
-* Ruby version
+Для запуска:
 
-* System dependencies
+    bundle exec rails db:migrate
+    bundle exec rails s
 
-* Configuration
+Приложение использует архитектуру MVC. В ходе работы над приложением была изучена работа с базой данных (в том числе связь М-М (функционал хештэгов)), основы безопасности rails приложений (gem recaptcha), аутентификация и авторизация пользователей.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Посмотреть приложение можно [здесь](https://ask-them.herokuapp.com/)
